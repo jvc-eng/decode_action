@@ -1,20 +1,20 @@
-//Thu Oct 10 2024 12:02:10 GMT+0000 (Coordinated Universal Time)
+//Fri Oct 11 2024 03:18:39 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
 const $ = new Env("Sakura樱花交流会");
 (() => {
-  function k(V) {
-    k = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (Y) {
+  function q(V) {
+    q = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (Y) {
       return typeof Y;
     } : function (Y) {
       return Y && "function" == typeof Symbol && Y.constructor === Symbol && Y !== Symbol.prototype ? "symbol" : typeof Y;
     };
-    return k(V);
+    return q(V);
   }
-  function q() {
+  function z() {
     'use strict';
 
-    q = function () {
+    z = function () {
       return X;
     };
     var W,
@@ -60,10 +60,11 @@ const $ = new Env("Sakura樱花交流会");
           type: "normal",
           arg: av.call(aw, ax)
         };
-      } catch (aB) {
-        var az = {};
-        az.type = "throw";
-        az.arg = aB;
+      } catch (aC) {
+        var az = {
+          type: "throw",
+          arg: aC
+        };
         return az;
       }
     }
@@ -86,37 +87,37 @@ const $ = new Env("Sakura樱花交流会");
     af.prototype = ad.prototype = Object.create(ag);
     var aj = af.prototype;
     function ak(av) {
-      ["next", "throw", "return"].forEach(function (ax) {
-        a5(av, ax, function (az) {
-          return this._invoke(ax, az);
+      ["next", "throw", "return"].forEach(function (ay) {
+        a5(av, ay, function (aC) {
+          return this._invoke(ay, aC);
         });
       });
     }
     function al(av, aw) {
-      function az(aA, aB, aC, aD) {
-        var aF = a7(av[aA], av, aB);
-        if ("throw" !== aF.type) {
-          var aG = aF.arg,
-            aH = aG.value;
-          return aH && "object" == k(aH) && Z.call(aH, "__await") ? aw.resolve(aH.__await).then(function (aI) {
-            az("next", aI, aC, aD);
-          }, function (aI) {
-            az("throw", aI, aC, aD);
-          }) : aw.resolve(aH).then(function (aI) {
-            aG.value = aI;
-            aC(aG);
-          }, function (aI) {
-            return az("throw", aI, aC, aD);
+      function aA(aB, aC, aD, aE) {
+        var aG = a7(av[aB], av, aC);
+        if ("throw" !== aG.type) {
+          var aH = aG.arg,
+            aI = aH.value;
+          return aI && "object" == q(aI) && Z.call(aI, "__await") ? aw.resolve(aI.__await).then(function (aL) {
+            aA("next", aL, aD, aE);
+          }, function (aL) {
+            aA("throw", aL, aD, aE);
+          }) : aw.resolve(aI).then(function (aL) {
+            aH.value = aL;
+            aD(aH);
+          }, function (aL) {
+            return aA("throw", aL, aD, aE);
           });
         }
-        aD(aF.arg);
+        aE(aG.arg);
       }
       var ay;
       a0(this, "_invoke", {
-        value: function (aA, aB) {
+        value: function (aB, aC) {
           function aE() {
             return new aw(function (aG, aH) {
-              az(aA, aB, aG, aH);
+              aA(aB, aC, aG, aH);
             });
           }
           return ay = ay ? ay.then(aE, aE) : aE();
@@ -125,28 +126,29 @@ const $ = new Env("Sakura樱花交流会");
     }
     function am(av, aw, ax) {
       var az = a8;
-      return function (aA, aB) {
+      return function (aB, aC) {
         if (az === aa) {
           throw Error("Generator is already running");
         }
         if (az === ab) {
-          if ("throw" === aA) {
-            throw aB;
+          if ("throw" === aB) {
+            throw aC;
           }
-          var aD = {};
-          aD.value = W;
-          aD.done = !0;
-          return aD;
+          var aE = {
+            value: W,
+            done: !0
+          };
+          return aE;
         }
-        for (ax.method = aA, ax.arg = aB;;) {
-          var aE = ax.delegate;
-          if (aE) {
-            var aF = an(aE, ax);
-            if (aF) {
-              if (aF === ac) {
+        for (ax.method = aB, ax.arg = aC;;) {
+          var aF = ax.delegate;
+          if (aF) {
+            var aG = an(aF, ax);
+            if (aG) {
+              if (aG === ac) {
                 continue;
               }
-              return aF;
+              return aG;
             }
           }
           if ("next" === ax.method) {
@@ -162,37 +164,37 @@ const $ = new Env("Sakura樱花交流会");
             }
           }
           az = aa;
-          var aG = a7(av, aw, ax);
-          if ("normal" === aG.type) {
-            if (az = ax.done ? ab : a9, aG.arg === ac) {
+          var aH = a7(av, aw, ax);
+          if ("normal" === aH.type) {
+            if (az = ax.done ? ab : a9, aH.arg === ac) {
               continue;
             }
-            var aH = {};
-            aH.value = aG.arg;
-            aH.done = ax.done;
-            return aH;
+            var aI = {};
+            aI.value = aH.arg;
+            aI.done = ax.done;
+            return aI;
           }
-          "throw" === aG.type && (az = ab, ax.method = "throw", ax.arg = aG.arg);
+          "throw" === aH.type && (az = ab, ax.method = "throw", ax.arg = aH.arg);
         }
       };
     }
     function an(av, aw) {
-      var aA = aw.method,
-        aB = av.iterator[aA];
-      if (aB === W) {
+      var aB = aw.method,
+        aC = av.iterator[aB];
+      if (aC === W) {
         aw.delegate = null;
-        "throw" === aA && av.iterator.return && (aw.method = "return", aw.arg = W, an(av, aw), "throw" === aw.method) || "return" !== aA && (aw.method = "throw", aw.arg = new TypeError("The iterator does not provide a '" + aA + "' method"));
+        "throw" === aB && av.iterator.return && (aw.method = "return", aw.arg = W, an(av, aw), "throw" === aw.method) || "return" !== aB && (aw.method = "throw", aw.arg = new TypeError("The iterator does not provide a '" + aB + "' method"));
         return ac;
       }
-      var az = a7(aB, av.iterator, aw.arg);
-      if ("throw" === az.type) {
+      var aD = a7(aC, av.iterator, aw.arg);
+      if ("throw" === aD.type) {
         aw.method = "throw";
-        aw.arg = az.arg;
+        aw.arg = aD.arg;
         aw.delegate = null;
         return ac;
       }
-      var aC = az.arg;
-      return aC ? aC.done ? (aw[av.resultName] = aC.value, aw.next = av.nextLoc, "return" !== aw.method && (aw.method = "next", aw.arg = W), aw.delegate = null, ac) : aC : (aw.method = "throw", aw.arg = new TypeError("iterator result is not an object"), aw.delegate = null, ac);
+      var aA = aD.arg;
+      return aA ? aA.done ? (aw[av.resultName] = aA.value, aw.next = av.nextLoc, "return" !== aw.method && (aw.method = "next", aw.arg = W), aw.delegate = null, ac) : aA : (aw.method = "throw", aw.arg = new TypeError("iterator result is not an object"), aw.delegate = null, ac);
     }
     function ao(av) {
       var aw = {
@@ -219,31 +221,31 @@ const $ = new Env("Sakura樱花交流会");
     }
     function ar(av) {
       if (av || "" === av) {
-        var ax = av[a2];
-        if (ax) {
-          return ax.call(av);
+        var aw = av[a2];
+        if (aw) {
+          return aw.call(av);
         }
         if ("function" == typeof av.next) {
           return av;
         }
         if (!isNaN(av.length)) {
-          var ay = -1,
-            az = function aD() {
-              for (; ++ay < av.length;) {
-                if (Z.call(av, ay)) {
-                  aD.value = av[ay];
-                  aD.done = !1;
-                  return aD;
+          var ax = -1,
+            ay = function az() {
+              for (; ++ax < av.length;) {
+                if (Z.call(av, ax)) {
+                  az.value = av[ax];
+                  az.done = !1;
+                  return az;
                 }
               }
-              aD.value = W;
-              aD.done = !0;
-              return aD;
+              az.value = W;
+              az.done = !0;
+              return az;
             };
-          return az.next = az;
+          return ay.next = ay;
         }
       }
-      throw new TypeError(k(av) + " is not iterable");
+      throw new TypeError(q(av) + " is not iterable");
     }
     ae.prototype = af;
     a0(aj, "constructor", {
@@ -256,8 +258,8 @@ const $ = new Env("Sakura樱花交流会");
     });
     ae.displayName = a5(af, a4, "GeneratorFunction");
     X.isGeneratorFunction = function (av) {
-      var aw = "function" == typeof av && av.constructor;
-      return !!aw && (aw === ae || "GeneratorFunction" === (aw.displayName || aw.name));
+      var ax = "function" == typeof av && av.constructor;
+      return !!ax && (ax === ae || "GeneratorFunction" === (ax.displayName || ax.name));
     };
     X.mark = function (av) {
       Object.setPrototypeOf ? Object.setPrototypeOf(av, af) : (av.__proto__ = af, a5(av, a4, "GeneratorFunction"));
@@ -278,8 +280,8 @@ const $ = new Env("Sakura樱花交流会");
     X.async = function (av, aw, ax, ay, az) {
       void 0 === az && (az = Promise);
       var aB = new al(a6(av, aw, ax, ay), az);
-      return X.isGeneratorFunction(aw) ? aB : aB.next().then(function (aC) {
-        return aC.done ? aC.value : aB.next();
+      return X.isGeneratorFunction(aw) ? aB : aB.next().then(function (aD) {
+        return aD.done ? aD.value : aB.next();
       });
     };
     ak(aj);
@@ -295,17 +297,17 @@ const $ = new Env("Sakura樱花交流会");
         ay = [];
       for (var az in ax) ay.push(az);
       ay.reverse();
-      return function aA() {
+      return function aB() {
         for (; ay.length;) {
           var aD = ay.pop();
           if (aD in ax) {
-            aA.value = aD;
-            aA.done = !1;
-            return aA;
+            aB.value = aD;
+            aB.done = !1;
+            return aB;
           }
         }
-        aA.done = !0;
-        return aA;
+        aB.done = !0;
+        return aB;
       };
     };
     X.values = ar;
@@ -313,7 +315,7 @@ const $ = new Env("Sakura樱花交流会");
       constructor: aq,
       reset: function (av) {
         if (this.prev = 0, this.next = 0, this.sent = this._sent = W, this.done = !1, this.delegate = null, this.method = "next", this.arg = W, this.tryEntries.forEach(ap), !av) {
-          for (var aw in this) "t" === aw.charAt(0) && Z.call(this, aw) && !isNaN(+aw.slice(1)) && (this[aw] = W);
+          for (var ay in this) "t" === ay.charAt(0) && Z.call(this, ay) && !isNaN(+ay.slice(1)) && (this[ay] = W);
         }
       },
       stop: function () {
@@ -329,40 +331,40 @@ const $ = new Env("Sakura樱花交流会");
           throw av;
         }
         var ax = this;
-        function aD(aE, aF) {
+        function aE(aF, aG) {
           aA.type = "throw";
           aA.arg = av;
-          ax.next = aE;
-          aF && (ax.method = "next", ax.arg = W);
-          return !!aF;
+          ax.next = aF;
+          aG && (ax.method = "next", ax.arg = W);
+          return !!aG;
         }
         for (var ay = this.tryEntries.length - 1; ay >= 0; --ay) {
           var az = this.tryEntries[ay],
             aA = az.completion;
           if ("root" === az.tryLoc) {
-            return aD("end");
+            return aE("end");
           }
           if (az.tryLoc <= this.prev) {
             var aB = Z.call(az, "catchLoc"),
               aC = Z.call(az, "finallyLoc");
             if (aB && aC) {
               if (this.prev < az.catchLoc) {
-                return aD(az.catchLoc, !0);
+                return aE(az.catchLoc, !0);
               }
               if (this.prev < az.finallyLoc) {
-                return aD(az.finallyLoc);
+                return aE(az.finallyLoc);
               }
             } else {
               if (aB) {
                 if (this.prev < az.catchLoc) {
-                  return aD(az.catchLoc, !0);
+                  return aE(az.catchLoc, !0);
                 }
               } else {
                 if (!aC) {
                   throw Error("try statement without catch or finally");
                 }
                 if (this.prev < az.finallyLoc) {
-                  return aD(az.finallyLoc);
+                  return aE(az.finallyLoc);
                 }
               }
             }
@@ -391,11 +393,11 @@ const $ = new Env("Sakura樱花交流会");
         return ac;
       },
       finish: function (av) {
-        for (var ay = this.tryEntries.length - 1; ay >= 0; --ay) {
-          var az = this.tryEntries[ay];
-          if (az.finallyLoc === av) {
-            this.complete(az.completion, az.afterLoc);
-            ap(az);
+        for (var ax = this.tryEntries.length - 1; ax >= 0; --ax) {
+          var ay = this.tryEntries[ax];
+          if (ay.finallyLoc === av) {
+            this.complete(ay.completion, ay.afterLoc);
+            ap(ay);
             return ac;
           }
         }
@@ -426,67 +428,67 @@ const $ = new Env("Sakura樱花交流会");
     };
     return X;
   }
-  function z(V, W) {
-    return function (Y) {
-      if (Array.isArray(Y)) {
-        return Y;
+  function A(V, W) {
+    return function (Z) {
+      if (Array.isArray(Z)) {
+        return Z;
       }
-    }(V) || function (Y, Z) {
-      var a1 = null == Y ? null : "undefined" != typeof Symbol && Y[Symbol.iterator] || Y["@@iterator"];
-      if (null != a1) {
-        var a2,
-          a3,
+    }(V) || function (Z, a0) {
+      var a2 = null == Z ? null : "undefined" != typeof Symbol && Z[Symbol.iterator] || Z["@@iterator"];
+      if (null != a2) {
+        var a3,
           a4,
           a5,
-          a6 = [],
-          a7 = !0,
-          a8 = !1;
+          a6,
+          a7 = [],
+          a8 = !0,
+          a9 = !1;
         try {
-          if (a4 = (a1 = a1.call(Y)).next, 0 === Z) {
-            if (Object(a1) !== a1) {
+          if (a5 = (a2 = a2.call(Z)).next, 0 === a0) {
+            if (Object(a2) !== a2) {
               return;
             }
-            a7 = !1;
+            a8 = !1;
           } else {
-            for (; !(a7 = (a2 = a4.call(a1)).done) && (a6.push(a2.value), a6.length !== Z); a7 = !0) {}
+            for (; !(a8 = (a3 = a5.call(a2)).done) && (a7.push(a3.value), a7.length !== a0); a8 = !0) {}
           }
-        } catch (ad) {
-          a8 = !0;
-          a3 = ad;
+        } catch (ae) {
+          a9 = !0;
+          a4 = ae;
         } finally {
           try {
-            if (!a7 && null != a1.return && (a5 = a1.return(), Object(a5) !== a5)) {
+            if (!a8 && null != a2.return && (a6 = a2.return(), Object(a6) !== a6)) {
               return;
             }
           } finally {
-            if (a8) {
-              throw a3;
+            if (a9) {
+              throw a4;
             }
           }
         }
-        return a6;
+        return a7;
       }
-    }(V, W) || function (Y, Z) {
-      if (Y) {
-        if ("string" == typeof Y) {
-          return A(Y, Z);
+    }(V, W) || function (Z, a0) {
+      if (Z) {
+        if ("string" == typeof Z) {
+          return B(Z, a0);
         }
-        var a0 = {}.toString.call(Y).slice(8, -1);
-        "Object" === a0 && Y.constructor && (a0 = Y.constructor.name);
-        return "Map" === a0 || "Set" === a0 ? Array.from(Y) : "Arguments" === a0 || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(a0) ? A(Y, Z) : void 0;
+        var a3 = {}.toString.call(Z).slice(8, -1);
+        "Object" === a3 && Z.constructor && (a3 = Z.constructor.name);
+        return "Map" === a3 || "Set" === a3 ? Array.from(Z) : "Arguments" === a3 || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(a3) ? B(Z, a0) : void 0;
       }
     }(V, W) || function () {
       throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
     }();
   }
-  function A(V, W) {
+  function B(V, W) {
     (null == W || W > V.length) && (W = V.length);
     for (var Y = 0, Z = Array(W); Y < W; Y++) {
       Z[Y] = V[Y];
     }
     return Z;
   }
-  function B(V, W, X, Y, Z, a0, a1) {
+  function C(V, W, X, Y, Z, a0, a1) {
     try {
       var a3 = V[a0](a1),
         a4 = a3.value;
@@ -495,121 +497,139 @@ const $ = new Env("Sakura樱花交流会");
     }
     a3.done ? W(a4) : Promise.resolve(a4).then(Y, Z);
   }
-  function C(V) {
+  function D(V) {
     return function () {
       var X = this,
         Y = arguments;
       return new Promise(function (Z, a0) {
         var a2 = V.apply(X, Y);
         function a3(a5) {
-          B(a2, Z, a0, a3, a4, "next", a5);
+          C(a2, Z, a0, a3, a4, "next", a5);
         }
         function a4(a5) {
-          B(a2, Z, a0, a3, a4, "throw", a5);
+          C(a2, Z, a0, a3, a4, "throw", a5);
         }
         a3(void 0);
       });
     };
   }
-  function D() {
-    return E.apply(this, arguments);
-  }
   function E() {
-    E = C(q().mark(function X() {
-      return q().wrap(function (Z) {
-        for (;;) {
-          switch (Z.prev = Z.next) {
-            case 0:
-              Z.next = 2;
-              return R({
-                url: "https://sliverkiss.free.hr"
-              });
-            case 2:
-              $.html = Z.sent;
-            case 3:
-            case "end":
-              return Z.stop();
-          }
-        }
-      }, X);
-    }));
-    return E.apply(this, arguments);
+    return F.apply(this, arguments);
   }
   function F() {
-    return G.apply(this, arguments);
-  }
-  function G() {
-    G = C(q().mark(function X() {
-      var Z, a0, a1, a2, a3, a4;
-      return q().wrap(function (a6) {
+    F = D(z().mark(function X() {
+      var Z, a0, a1, a2, a3;
+      return z().wrap(function (a5) {
         for (;;) {
-          switch (a6.prev = a6.next) {
+          switch (a5.prev = a5.next) {
             case 0:
-              Z = $.path.split("/query");
-              a0 = z(Z, 2);
+              Z = $.path.split("/web");
+              a0 = A(Z, 2);
               a1 = a0[1];
-              a2 = "";
-              a6.t0 = a1;
-              a6.next = "/sub" === a6.t0 ? 5 : 16;
+              a5.t0 = a1;
+              a5.next = "/sub" === a5.t0 ? 4 : 15;
               break;
-            case 5:
-              a6.next = 7;
-              return N();
-            case 7:
-              a3 = a6.sent;
-              a6.next = 10;
-              return L(a3);
-            case 10:
-              a4 = a6.sent;
-              a6.next = 13;
-              return J(a4);
-            case 13:
-              a2 = a6.sent;
-              return a6.abrupt("break", 18);
-            case 16:
+            case 4:
+              a5.next = 6;
+              return O();
+            case 6:
+              a2 = a5.sent;
+              a5.next = 9;
+              return M(a2);
+            case 9:
+              a3 = a5.sent;
+              a5.next = 12;
+              return K(a3);
+            case 12:
+              $.html = a5.sent;
+              return a5.abrupt("break", 17);
+            case 15:
               $.msg($.name, "", "测试query");
-              return a6.abrupt("break", 18);
-            case 18:
-              return a6.abrupt("return", a2);
-            case 19:
+              return a5.abrupt("break", 17);
+            case 17:
             case "end":
-              return a6.stop();
+              return a5.stop();
           }
         }
       }, X);
     }));
-    return G.apply(this, arguments);
+    return F.apply(this, arguments);
+  }
+  function G() {
+    return H.apply(this, arguments);
   }
   function H() {
-    return I.apply(this, arguments);
+    H = D(z().mark(function X() {
+      var Y, Z, a0, a1, a2, a3;
+      return z().wrap(function (a4) {
+        for (;;) {
+          switch (a4.prev = a4.next) {
+            case 0:
+              Y = $.path.split("/query");
+              Z = A(Y, 2);
+              a0 = Z[1];
+              a1 = "";
+              a4.t0 = a0;
+              a4.next = "/sub" === a4.t0 ? 5 : 16;
+              break;
+            case 5:
+              a4.next = 7;
+              return O();
+            case 7:
+              a2 = a4.sent;
+              a4.next = 10;
+              return M(a2);
+            case 10:
+              a3 = a4.sent;
+              a4.next = 13;
+              return K(a3);
+            case 13:
+              a1 = a4.sent;
+              return a4.abrupt("break", 18);
+            case 16:
+              $.msg($.name, "", "测试query");
+              return a4.abrupt("break", 18);
+            case 18:
+              return a4.abrupt("return", a1);
+            case 19:
+            case "end":
+              return a4.stop();
+          }
+        }
+      }, X);
+    }));
+    return H.apply(this, arguments);
   }
   function I() {
-    I = C(q().mark(function W() {
-      var X, Y;
-      return q().wrap(function (Z) {
+    return J.apply(this, arguments);
+  }
+  function J() {
+    J = D(z().mark(function X() {
+      var Z, a0;
+      return z().wrap(function (a2) {
         for (;;) {
-          switch (Z.prev = Z.next) {
+          switch (a2.prev = a2.next) {
             case 0:
-              X = $.path.split("/api");
-              Y = z(X, 2);
-              Y[1];
+              Z = $.path.split("/api");
+              a0 = A(Z, 2);
+              a0[1];
               $.msg($.name, "", "测试api");
             case 2:
             case "end":
-              return Z.stop();
+              return a2.stop();
           }
         }
-      }, W);
+      }, X);
     }));
-    return I.apply(this, arguments);
+    return J.apply(this, arguments);
   }
-  function J(V) {
-    return K.apply(this, arguments);
+  function K(V) {
+    return L.apply(this, arguments);
   }
-  function K() {
-    K = C(q().mark(function W(X) {
+  function L() {
+    L = D(z().mark(function W(X) {
       var Z, a0;
-      return q().wrap(function (a1) {
+      return z().wrap(function (a1) {
         for (;;) {
           switch (a1.prev = a1.next) {
             case 0:
@@ -639,29 +659,29 @@ const $ = new Env("Sakura樱花交流会");
         }
       }, W);
     }));
-    return K.apply(this, arguments);
+    return L.apply(this, arguments);
   }
-  function L(V) {
-    return M.apply(this, arguments);
+  function M(V) {
+    return N.apply(this, arguments);
   }
-  function M() {
-    M = C(q().mark(function W(X) {
+  function N() {
+    N = D(z().mark(function W(X) {
       var Y, Z;
-      return q().wrap(function (a0) {
+      return z().wrap(function (a0) {
         for (;;) {
           switch (a0.prev = a0.next) {
             case 0:
+              var a1 = {};
+              a1["user-agent"] = "Dart/3.5 (dart:io)";
+              a1.accept = "*/*";
+              a1["accept-encoding"] = "gzip";
+              a1.host = "soonlink.xn--wqr30o34q.xn--io0a7i";
+              a1.authorization = X;
+              a1["content-type"] = "application/json";
               var a2 = {};
-              a2["user-agent"] = "Dart/3.5 (dart:io)";
-              a2.accept = "*/*";
-              a2["accept-encoding"] = "gzip";
-              a2.host = "soonlink.xn--wqr30o34q.xn--io0a7i";
-              a2.authorization = X;
-              a2["content-type"] = "application/json";
-              var a3 = {};
-              a3.url = "https://soonlink.xn--wqr30o34q.xn--io0a7i/api/v1/user/getSubscribe";
-              a3.headers = a2;
-              Y = a3;
+              a2.url = "https://soonlink.xn--wqr30o34q.xn--io0a7i/api/v1/user/getSubscribe";
+              a2.headers = a1;
+              Y = a2;
               a0.next = 3;
               return R(Y);
             case 3:
@@ -674,15 +694,15 @@ const $ = new Env("Sakura樱花交流会");
         }
       }, W);
     }));
-    return M.apply(this, arguments);
+    return N.apply(this, arguments);
   }
-  function N() {
+  function O() {
     return P.apply(this, arguments);
   }
   function P() {
-    P = C(q().mark(function W() {
+    P = D(z().mark(function W() {
       var X, Y, Z, a0;
-      return q().wrap(function (a1) {
+      return z().wrap(function (a1) {
         for (;;) {
           switch (a1.prev = a1.next) {
             case 0:
@@ -721,23 +741,23 @@ const $ = new Env("Sakura樱花交流会");
     return S.apply(this, arguments);
   }
   function S() {
-    S = C(q().mark(function W(X, Y) {
-      return q().wrap(function (a0) {
+    S = D(z().mark(function W(X, Y) {
+      return z().wrap(function (Z) {
         for (;;) {
-          switch (a0.prev = a0.next) {
+          switch (Z.prev = Z.next) {
             case 0:
-              return a0.abrupt("return", (void 0 === Y && (Y = "body" in X ? "post" : "get"), new Promise(function (a2, a3) {
-                $.http[Y.toLowerCase()](X).then(function (a5) {
-                  var a6 = a5.body;
-                  a6 = $.toObj(a6) || a6;
-                  a2(a6);
-                }).catch(function (a5) {
-                  return a3(a5);
+              return Z.abrupt("return", (void 0 === Y && (Y = "body" in X ? "post" : "get"), new Promise(function (a1, a2) {
+                $.http[Y.toLowerCase()](X).then(function (a4) {
+                  var a5 = a4.body;
+                  a5 = $.toObj(a5) || a5;
+                  a1(a5);
+                }).catch(function (a4) {
+                  return a2(a4);
                 });
               })));
             case 1:
             case "end":
-              return a0.stop();
+              return Z.stop();
           }
         }
       }, W);
@@ -754,71 +774,70 @@ const $ = new Env("Sakura樱花交流会");
     return Object.assign(W, V);
   }
   function U() {
-    var V = {
+    return T({
       "Content-Type": "application/json; charset=utf-8"
-    };
-    return T(V);
+    });
   }
   $.host = "sl.eric.vpn";
   $.isNeedRewrite = !0;
   $.json = $.name;
   $.html = $.name;
   $.type = "page";
-  C(q().mark(function V() {
-    var X, Y, Z;
-    return q().wrap(function (a0) {
+  D(z().mark(function V() {
+    var W, X, Y;
+    return z().wrap(function (Z) {
       for (;;) {
-        switch (a0.prev = a0.next) {
+        switch (Z.prev = Z.next) {
           case 0:
-            if ($.path = (a1 = $request.url, a2 = void 0, a2 = a1.lastIndexOf("/") === a1.length - 1 ? -1 : void 0, a1.slice(a1.indexOf("/", $.host.length), a2)), X = $.path.split("?"), Y = z(X, 2), Z = Y[1], $.queries = Z ? Z.split("&").reduce(function (a3, a4) {
+            if ($.path = (a1 = $request.url, a2 = void 0, a2 = a1.lastIndexOf("/") === a1.length - 1 ? -1 : void 0, a1.slice(a1.indexOf("/", $.host.length), a2)), W = $.path.split("?"), X = A(W, 2), Y = X[1], $.queries = Y ? Y.split("&").reduce(function (a3, a4) {
               var a5 = a4.split("="),
-                a6 = z(a5, 2),
+                a6 = A(a5, 2),
                 a7 = a6[0],
                 a8 = a6[1];
               a3[a7] = a8;
               return a3;
             }, {}) : {}, $.isGet = "GET" === $request.method, $.isPost = "POST" === $request.method, $.isOptions = "OPTIONS" === $request.method, $.type = "page", $.isQuery = $.isGet && /^\/query\/.*?/.test($.path), $.isApi = $.isPost && /^\/api\/.*?/.test($.path), $.isPage = $.isGet && !$.isQuery && !$.isApi, !$.isOptions) {
-              a0.next = 16;
+              Z.next = 16;
               break;
             }
             $.type = "options";
-            a0.next = 14;
+            Z.next = 14;
             return handleOptions();
           case 14:
           case 20:
-            a0.next = 33;
+            Z.next = 33;
             break;
           case 16:
             if (!$.isPage) {
-              a0.next = 22;
+              Z.next = 22;
               break;
             }
             $.type = "page";
-            a0.next = 20;
-            return D();
+            Z.next = 20;
+            return E();
           case 22:
             if (!$.isQuery) {
-              a0.next = 29;
+              Z.next = 29;
               break;
             }
             $.type = "query";
-            a0.next = 26;
-            return F();
+            Z.next = 26;
+            return G();
           case 26:
-            $.json = a0.sent;
-            a0.next = 33;
+            $.json = Z.sent;
+            Z.next = 33;
             break;
           case 29:
             if (!$.isApi) {
-              a0.next = 33;
+              Z.next = 33;
               break;
             }
             $.type = "api";
-            a0.next = 33;
-            return H();
+            Z.next = 33;
+            return I();
           case 33:
           case "end":
-            return a0.stop();
+            return Z.stop();
         }
       }
       var a1, a2;
@@ -834,17 +853,18 @@ const $ = new Env("Sakura樱花交流会");
         headers: X
       }
     })) : $.isPage ? function () {
-      var Y = T({
+      var Y = {
         "Content-Type": "text/html;charset=UTF-8"
-      });
+      };
+      var Z = T(Y);
       $.isQuanX() ? $.done({
         status: "HTTP/1.1 200",
-        headers: Y,
+        headers: Z,
         body: $.html
       }) : $.done({
         response: {
           status: 200,
-          headers: Y,
+          headers: Z,
           body: $.html
         }
       });
